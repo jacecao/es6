@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>gulp-es6-环境搭建</title>
+  <style>
+  	h3 {
+  		user-select: none;
+  	}
+  </style>
+</head>
+<body>
+  <h3>Gulp-ES6-Development</h3>
+  <script src="/js/app.min.js"></script>
+  <script>
+  	// 这里是为了配合gulp-livereload实现网页自动刷新功能
+  	document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+  </script>
+</body>
+</html>

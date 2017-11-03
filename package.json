@@ -24,7 +24,9 @@
     "gulp-rename": "^1.2.2",
     "gulp-webpack": "^1.5.0",
     "koa": "^2.3.0",
-    "require-dir": "^0.3.2"
+    "require-dir": "^0.3.2",
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^4.0.0"
   },
   "dependencies": {}
 }

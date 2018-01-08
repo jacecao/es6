@@ -39,6 +39,10 @@ let out_info = 'here no es6 process running';
 	}
 
 	let ins = new Collection();
+	// 类的内部方法不可枚举
+	// 这里将symbol值作为类的内部属性可以防止被外部调用时修改
+	console.log(Object.keys(ins));
+	console.log(ins[size]);
 	ins.add('plus');
 	// out_info = ins[size];
 	// out_info += '--' + Collection.sizeOf(ins);

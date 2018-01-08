@@ -5,6 +5,7 @@ const route = require('./route.js');
 route(app);
 
 app.listen(3000);
+console.log('server run @ 3000 port');
 
 
 

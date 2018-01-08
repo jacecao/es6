@@ -1,8 +1,5 @@
 // gulpfile.js 为常见gulp执行入口文件
 // gulpfile.babel.js 这个入口文件就必须要求满足babel运行的环境
-// 也只有满足babel环境，才能使用import来引入模块
-// 在不满足babel运行环境下，使用gulp会出现模块缺失提示
-// 这里我们从最简单的gulpfile配置入手
 
 // require-dir  这个默认能将目录下的文件，依次require，并返回一个对象
 // 举例说明：

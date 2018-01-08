@@ -22,7 +22,7 @@ module.exports = (app) => {
 
 	app.use(async (ctx) => {
 
-		require('connect-livereload')();
+		// require('connect-livereload')();
 
 		let _file_path = path.resolve(__dirname, '../webroot');
 		let file_path = path.join(_file_path, ctx.path);

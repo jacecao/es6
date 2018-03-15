@@ -1,21 +1,41 @@
-## Koa搭建精简版ES6开发环境
+# ES6
+
+> 具备ES6浏览器环境，可以在里面运行下面的案例，也可以在node中单独运行下面的案例
+
+* #### 关于箭头函数作用域的说明
+
+箭头函数作用域是绑定于所在的环境中，不会改变。用列子说明如下    
+```JavaScript
+  // node环境
+  global.name = 'global';
+
+  let obj = {
+    name: 'obj',
+    get_name () {
+      return function () {
+        return this.name;
+      }
+    }
+  }
+
+  console.log(obj.get_name()());
+  console.log(obj.get_name().bind(obj)());
+```    
+第一次打印出`global`,第二次打印出`obj`，说明当前作用域跟随执行环境发生改变的，如果理解了这点那我们来看看通过箭头函数会发生什么？    
+```JavaScript
+  // node环境
+  global.name = 'global';
+
+  let obj_1 = {
+    name: 'obj',
+    get_name () {
+      return () => this.name;
+    }
+  }
+
+  console.log(obj_1.get_name()());
+  console.log(obj_1.get_name().bind(global)());
+```     
+这次你就会发现打印的都是`obj`,即使显示的绑定了作用域，那么得到的还是obj_1里的name，这就是非常有意思的地方，箭头函数将牢牢绑定this为初始对象(这也解释了为什么箭头函数不能作为构造函数)
 
 
-* #### 开发环境  
-
-1. node >= v.6.x
-2. gulp + webpack
-3. ES6
-
-gulp实现自动文件处理，这里也只是实现最简单的几个任务
-如果需要添加css文本自动转换，可以按照tasks文件中script.js来写一个css转换任务
-
-* #### 启动应用  
-
-1. node start  或者 gulp default
-2. 3000端口
-
-另：该项目自动刷新插件仅仅用于小项目，大项目请使用其他刷新插件。
-
-**BUG**    
-服务启动后，如果编译失败或gulp执行任务出错会导致服务端无法完全关闭，出现端口占用的现象，出现该情况只需要排除错误后，查找该端口的进程ID，然后终止该进程即可解决。

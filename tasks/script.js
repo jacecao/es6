@@ -14,7 +14,7 @@ const rename = require('gulp-rename');
 const plumber = require('gulp-plumber');
 
 gulp.task('script', () => {
-  return gulp.src(['src/js/main.js'])
+  return gulp.src(['src/main.js'])
     .pipe(plumber())
     // 编译js
     .pipe(gulpwebpack({
